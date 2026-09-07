@@ -2,7 +2,7 @@ const cfg = window.RD_CONFIG;
 const csv = async tab => {
   if (!cfg.sheetId || cfg.sheetId.startsWith('PASTE_')) throw Error('Configure config.js with the published Google Sheet ID.');
   const root = cfg.sheetId.startsWith('2PACX-') ? `https://docs.google.com/spreadsheets/d/e/${cfg.sheetId}` : `https://docs.google.com/spreadsheets/d/${cfg.sheetId}`;
-  const url = `${root}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
+  const url = cfg.sources?.[tab] || `${root}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
   const response = await fetch(url);
   if (!response.ok) throw Error('The department archive could not be reached.');
   const text = await response.text();

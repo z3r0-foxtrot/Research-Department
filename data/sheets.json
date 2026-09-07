@@ -1,0 +1,52 @@
+{
+  "Announcements": [
+    {
+      "date": "9/6/26",
+      "title": "Database Creation",
+      "summary": "The website and online database is now partially operational."
+    }
+  ],
+  "Users": [
+    {
+      "username": "z",
+      "password": "z",
+      "rank": "Director",
+      "clearancelevel": "4"
+    }
+  ],
+  "Test Logs": [
+    {
+      "scpid": "444",
+      "title": "12",
+      "date": "3",
+      "status": "124"
+    }
+  ],
+  "SCPs": [
+    {
+      "scpid": "4",
+      "title": "412",
+      "classification": "4",
+      "objectclass": "4",
+      "risklevel": "4",
+      "status": "6",
+      "containment": "45",
+      "description": "7",
+      "notes": "7"
+    }
+  ],
+  "Roster": [
+    {
+      "robloxusername": "Z3R0_foxtrot",
+      "discordusername": "z3r0_commander",
+      "rank": "Overseer",
+      "robloxuserid": "1914036219",
+      "robloxprofileurl": "https://www.roblox.com/users/1914036219/profile"
+    }
+  ],
+  "Ranks": [
+    {
+      "overseer": "Director"
+    }
+  ]
+}

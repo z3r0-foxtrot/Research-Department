@@ -1,5 +1,15 @@
 const cfg = window.RD_CONFIG;
+let bundledSheets;
+async function localSheets() {
+  if (!bundledSheets) bundledSheets = fetch('data/sheets.json', { cache: 'no-store' })
+    .then(response => response.ok ? response.json() : Promise.reject(Error('No synced Sheet snapshot is available yet.')));
+  return bundledSheets;
+}
 const csv = async tab => {
+  try {
+    const sheets = await localSheets();
+    if (Array.isArray(sheets[tab])) return sheets[tab];
+  } catch { /* A direct public-Sheet fallback is kept for first-time setup. */ }
   if (!cfg.sheetId || cfg.sheetId.startsWith('PASTE_')) throw Error('Configure config.js with the published Google Sheet ID.');
   const root = cfg.sheetId.startsWith('2PACX-') ? `https://docs.google.com/spreadsheets/d/e/${cfg.sheetId}` : `https://docs.google.com/spreadsheets/d/${cfg.sheetId}`;
   const url = cfg.sources?.[tab] || `${root}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
